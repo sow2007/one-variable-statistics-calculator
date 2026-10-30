@@ -2,6 +2,8 @@
 
 This program helps to save a little bit of time with basic analysis by able to calculate the mean, median, percentiles, and other one-variable statistics of an array of data!
 
+Use the .bat file to open the program. If you insist on using it in R Studio, only 'calculator studio.R' will work.
+
 Data can either be imported from a .csv file or manually imported.
 
 # Notes
