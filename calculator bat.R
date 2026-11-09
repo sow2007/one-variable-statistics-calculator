@@ -1,5 +1,7 @@
 #demo
 
+require(tidyverse)
+
 running="Y"
 
 getInput <- function(prompt) {
@@ -20,6 +22,10 @@ code<-function(){
     
     col<-as.integer(getInput("What column would you like to extract one-variable statistics from?: "))
     
+    response<-getInput("Is your data discrete or continuous? Please type D for discrete, C for continuous. ")
+    
+    
+    
     cleanedData<-as.numeric(unlist(myData[[col]]))
     
     df<-cleanedData
@@ -33,7 +39,33 @@ code<-function(){
     print(sd(df,na.rm=TRUE))
     
     print("Quantiles :")
-    quantile(df,na.rm=TRUE)
+    print(quantile(df,na.rm=TRUE))
+    
+    
+    
+    if(toupper(response)=='D'){
+      plot <- ggplot(data.frame(df),
+                     aes(
+                       x=df
+                     ))+
+        geom_histogram()
+      
+      
+      ggsave("discreteplot.png", plot)
+      
+      browseURL("discreteplot.png")
+    }else if(toupper(response)=='C'){
+      plot <- ggplot(data.frame(df),
+                     aes(
+                       x=df
+                     ))+
+        geom_density()
+      
+      
+      ggsave("continuousplot.png", plot)
+      
+      browseURL("continuousplot.png")
+    }
     
     
   }else
@@ -56,7 +88,7 @@ code<-function(){
       }
       
     } else {
-      stop("Please enter a valid positive integer.")
+      stop("Please enter a valid number.")
     }
     
     array<-c(1:size)
@@ -71,6 +103,7 @@ code<-function(){
     
     print("Standard Deviation :")
     print(sd(array))
+    
     
     print("Quantiles :")
     quantile(array)
