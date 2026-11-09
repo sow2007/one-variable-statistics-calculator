@@ -14,7 +14,7 @@ Data can either be imported from a .csv file or manually imported.
 - (as of 20261108) I made a grammatical error where I call a histogram a discrete plot (lol), I will fix this later.
 
 # Updates
-20261108
+## 20261108
 - Can now generate histograms and density plots upon request. Uses tidyverse.
 - Fixed error with generating quantiles
 - Housekeeping
